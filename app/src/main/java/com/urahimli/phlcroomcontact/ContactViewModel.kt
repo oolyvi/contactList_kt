@@ -13,13 +13,11 @@ import kotlinx.coroutines.flow.stateIn
 import kotlinx.coroutines.flow.update
 import kotlinx.coroutines.launch
 
-class ContactViewModel(            //bu viewModel state'lerimizi saxlayacaq
-                                   //goruntu ile state'leri elaqelendiririk
+class ContactViewModel(            
     private val dao: ContactDao
 ): ViewModel(){
 
     private val _sortType = MutableStateFlow(SortType.FIRST_NAME)
-    //contact'lari sort etmek
     private val _contacts = _sortType
         .flatMapLatest { sortType ->
             when(sortType) {
@@ -54,7 +52,7 @@ class ContactViewModel(            //bu viewModel state'lerimizi saxlayacaq
                 val firstName = state.value.firstName
                 val lastName = state.value.lastName
                 val phoneNumber = state.value.phoneNumber
-                                                    //eger bos input varsa
+                                                    
                 if(firstName.isBlank() || lastName.isBlank() || phoneNumber.isBlank()) {
                     return
                 }
@@ -67,7 +65,7 @@ class ContactViewModel(            //bu viewModel state'lerimizi saxlayacaq
                 viewModelScope.launch {
                     dao.upsertContact(contact)
                 }
-                _state.update { it.copy(     //save olduqdan sonra hamisi sifirlanir
+                _state.update { it.copy(     
                     isAddingContact = false,
                     firstName = "",
                     lastName = "",
