@@ -62,18 +62,6 @@ fun AddContactDialog(
             }
 
         },
-//        buttons = {
-//            Box(
-//                modifier = Modifier.fillMaxWidth(),
-//                contentAlignment = Alignment.CenterEnd
-//            ) {
-//                Button(onClick = {
-//                    onEvent(ContactEvent.SaveContact)
-//                }) {
-//                    Text(text = "Save")
-//                }
-//            }
-//        }
 
             confirmButton = {
                 TextButton(onClick = {
