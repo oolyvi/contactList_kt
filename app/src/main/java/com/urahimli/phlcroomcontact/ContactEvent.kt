@@ -1,6 +1,6 @@
 package com.urahimli.phlcroomcontact
 
-sealed interface ContactEvent {             //butun button event'lerini filan burada yaziriq
+sealed interface ContactEvent {             
 
     object SaveContact : ContactEvent
 
