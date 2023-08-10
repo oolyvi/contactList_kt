@@ -9,13 +9,13 @@ import kotlinx.coroutines.flow.Flow
 @Dao
 interface ContactDao {
 
-    @Upsert                     //bu yeni gelib, insert ve update mix hali kimidir
+    @Upsert                     
     suspend fun upsertContact(contact: Contact)
 
     @Delete
     suspend fun deleteContact(contact: Contact)
 
-    @Query("SELECT * FROM contact ORDER BY firstName ASC")      //ascending order -> artan
+    @Query("SELECT * FROM contact ORDER BY firstName ASC")      
     fun getContactsOrderedByFirstName(): Flow<List<Contact>>
 
     @Query("SELECT * FROM contact ORDER BY lastName ASC")
