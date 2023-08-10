@@ -60,16 +60,16 @@ fun ContactScreen(
             verticalArrangement = Arrangement.spacedBy(16.dp)
         ) {
             item { 
-                Row(                    //en yuxaridaki hisse ucun
+                Row(                    
                     modifier = Modifier
                         .fillMaxWidth()
                         .horizontalScroll(rememberScrollState()),
                     verticalAlignment = Alignment.CenterVertically
                 ) {
                     SortType.values().forEach { sortType ->
-                        Row(               //en yuxaridaki text ve radio button ucun
+                        Row(               
                             modifier = Modifier
-                                .clickable {             //click etdikde sort edir list'i
+                                .clickable {             
                                     onEvent(ContactEvent.SortContacts(sortType))
                                 },
                             verticalAlignment = CenterVertically
@@ -84,7 +84,7 @@ fun ContactScreen(
                     }
                 }
             }
-            items(state.contacts) { contact ->       //contact list olan hisse
+            items(state.contacts) { contact ->       
                 Row(
                     modifier = Modifier.fillMaxWidth()
                 ) {
@@ -100,7 +100,7 @@ fun ContactScreen(
                             fontSize = 12.sp
                         )
                     }
-                    IconButton(onClick = {             //en sagdaki delete icon button
+                    IconButton(onClick = {             
                         onEvent(ContactEvent.DeleteContact(contact))
                     }) {
                         Icon(
