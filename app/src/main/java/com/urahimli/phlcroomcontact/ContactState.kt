@@ -1,6 +1,6 @@
 package com.urahimli.phlcroomcontact
 
-data class ContactState(          //deyise bilenleri evvelceden burada qeyd edirik
+data class ContactState(          
     val contacts: List<Contact> = emptyList(),
     val firstName: String = "",
     val lastName: String = "",
